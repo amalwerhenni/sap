@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>Boutique </label>
+    <select
+      class="form-control form-control-lg"
+      id="idbou"
+      name="idbou"
+      [(ngModel)]="IdBoutique"
+      (change)="onChange()"
+    >
+      <option *ngFor="let bou of boutiques" value="{{ bou.idBou }}">
+        {{ bou.nomBou }}
+      </option>
+    </select>
+  </div>
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Id</th>
+          <th>Marque</th>
+          <th>prix</th>
+          <th>Date achat</th>
+          <th>boutique</th>
+        </tr>
+        <tbody *ngFor="let e of vetements">
+          <tr>
+            <td>{{ e.idVet }}</td>
+            <td>{{ e.marqueVet }}</td>
+            <td>{{ e.prixVet }}</td>
+            <td>{{ e.dateAchat | date : "dd/MM/yyyy" }}</td>
+            <td>{{ e.boutique?.nomBou }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

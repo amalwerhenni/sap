@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <app-update-boutique
+          [boutique]="updatedbou"
+          (boutiqueUpdated)="boutiqueUpdated($event)"
+          [ajout]="ajout"
+        ></app-update-boutique>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom Boutique</th>
+            <th>address Boutique</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let bou of boutiques">
+          <tr>
+            <td>{{ bou.idBou }}</td>
+            <td>{{ bou.nomBou }}</td>
+            <td>{{ bou.addressbou }}</td>
+            <td>
+              <a class="btn btn-success" (click)="updatebou(bou)">Editer</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
